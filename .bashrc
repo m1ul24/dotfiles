@@ -113,11 +113,11 @@ bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
 
 # Prompt colours
-atC="${txtpur}"
-nameC="${txtpur}"
-hostC="${txtpur}"
+atC="${txtblu}"
+nameC="${txtblu}"
+hostC="${txtblu}"
 pathC="${txtgrn}"
-gitC="${txtpur}"
+gitC="${txtblu}"
 pointerC="${txtgrn}"
 normalC="${txtwht}"
 
