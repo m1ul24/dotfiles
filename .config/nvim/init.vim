@@ -49,9 +49,6 @@ syntax on
 
 set encoding=utf8
 
-" disable automatic comment
-au FileType * set fo-=c fo-=r fo-=o
-
 " history
 set history=50
 
@@ -109,6 +106,12 @@ set clipboard+=unnamedplus
 set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
+
+" disable automatic comment
+au FileType * set fo-=c fo-=r fo-=o
+
+" buffer to a new tab
+au BufAdd,BufNewFile * nested tab sball
 
 " End General -------------------------
 
