@@ -136,7 +136,6 @@ inoremap <silent> <Down> <Esc>gja
 " bash / emacs keys for command line
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-"
 
 " split window
 nmap <Space>s :split<Return><C-w>w
