@@ -111,7 +111,7 @@ let g:solarized_termcolors=256
 au FileType * set fo-=c fo-=r fo-=o
 
 " buffer to a new tab
-au BufAdd,BufNewFile * nested tab sball
+" au BufAdd,BufNewFile * nested tab sball
 
 " End General -------------------------
 
