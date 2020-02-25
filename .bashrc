@@ -52,8 +52,8 @@ if ! shopt -oq posix; then
 fi
 
 # environments
-export TERM=xterm-256color
 export EDITOR=/usr/bin/vim
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -68,7 +68,6 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH=~/.npm-global/lib/node_modules/n/bin:$PATH
 export PATH=$PATH:/opt/gradle/gradle-6.0.1/bin
 export PATH=$PATH:/usr/local/go/bin
-
 # color
 eval `dircolors $HOME/gnome-terminal-colors-solarized/dircolors`
 
@@ -154,6 +153,12 @@ ms () {
     echo "##################################################"
     echo ""
     sudo masscan -p1-65535 $(dig +short $strip|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"|head -1) --max-rate 1000 |& tee $strip_scan
+}
+
+ide () {
+    tmux split-window -v -p 30
+    tmux split-window -h -p 66
+    tmux split-window -h -p 50
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

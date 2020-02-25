@@ -1,4 +1,5 @@
 " vim-plug-----------------------------
+
 call plug#begin('~/.config/nvim/plugged')
 
 " intellisense engine
@@ -15,9 +16,6 @@ Plug 'junegunn/fzf.vim'
 " undo tree
 Plug 'sjl/gundo.vim'
 
-" file explorer
-Plug 'scrooloose/nerdtree'
-
 " check syntax
 Plug 'dense-analysis/ale'
 
@@ -25,9 +23,7 @@ Plug 'dense-analysis/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kristijanhusak/vim-hybrid-material'
-" Plug 'vim-scripts/xoria256.vim'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " language
 Plug 'posva/vim-vue'
@@ -35,28 +31,31 @@ Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 
+" file explorer
+Plug 'scrooloose/nerdtree'
+
 " others
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
+
 " End vim-plug-------------------------
+
+
+" General -----------------------------
 
 filetype plugin on
 syntax on
 
-" Leader
-let mapleader = "\<Space>"
-nnoremap <SPACE> <Nop>
-
-" To nomal mode from insert mode
-inoremap <silent> jj <ESC>
-
 set encoding=utf8
 
-" History
+" disable automatic comment
+au FileType * set fo-=c fo-=r fo-=o
+
+" history
 set history=50
 
-" Display
+" display
 set ls=2
 set showmode
 set showcmd
@@ -66,50 +65,67 @@ set title
 set nu
 set number
 
-" Line wrapping
+" line wrapping
 set nowrap
 set linebreak
 set showbreak=▹
 
-" Auto indent what you can
+" auto indent what you can
 set autoindent
 
-" Searching
+" searching
 set ignorecase
 set smartcase
 set gdefault
 set hlsearch
 set showmatch
 
-" Enable jumping into files in a search buffer
+" enable jumping into files in a search buffer
 set hidden
 
-" Make backspace a bit nicer
+" make backspace a bit nicer
 set backspace=eol,start,indent
 
-" Indentation
+" indentation
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set shiftround
 set expandtab
 
-" Disable mouse
+" disable mouse
 set mouse=
 
-" vim-hybrid-material
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  set termguicolors
-endif
-colorscheme hybrid_reverse
+" visual prompt for command completion
+set wildmenu
 
-" Gundo toggle
+" folding
+set nofoldenable
+
+" use the system clipboad
+set clipboard+=unnamedplus
+
+" theme
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+
+" End General -------------------------
+
+
+" Key maps ----------------------------
+
+" leader
+let mapleader = "\<Space>"
+nnoremap <Space> <Nop>
+
+" to nomal mode from insert mode
+inoremap <silent> jj <ESC>
+
+" gundo toggle
 nnoremap <silent> <space>u :GundoToggle<CR>
 
-" Direction keys for wrapped lines
+" direction keys for wrapped lines
 nnoremap <silent> k gk
 nnoremap <silent> j gj
 nnoremap <silent> <Up> gk
@@ -117,36 +133,36 @@ nnoremap <silent> <Down> gj
 inoremap <silent> <Up> <Esc>gka
 inoremap <silent> <Down> <Esc>gja
 
-" Bash / emacs keys for command line
+" bash / emacs keys for command line
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+"
 
-" Visual prompt for command completion
-set wildmenu
+" split window
+nmap <Space>s :split<Return><C-w>w
+nmap <Space>v :vsplit<Return><C-w>w
 
-" folding
-set nofoldenable
+" End key maps ------------------------
 
-" Use the system clipboad
-set clipboard+=unnamedplus
 
-" Powerline
+" Plugins -----------------------------
+
+" powerline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
-" NERDTree
+" nerdtree
 nnoremap <silent> <space>t :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeShowHidden=1 " show dotfiles
 
 " fzf
-nnoremap <silent> <Leader>f :GFiles<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <C-p> :Files<CR>
 
 " typescript-vim
 let g:typescript_indent_disable = 1
@@ -165,3 +181,4 @@ let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
 
+" End plugins -------------------------
