@@ -53,12 +53,12 @@ fi
 
 # environments
 export EDITOR=/usr/bin/vim
+export TERM=xterm-256color
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
 # go
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME
