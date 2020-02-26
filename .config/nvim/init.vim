@@ -125,9 +125,6 @@ nnoremap <Space> <Nop>
 " to nomal mode from insert mode
 inoremap <silent> jj <ESC>
 
-" gundo toggle
-nnoremap <silent> <space>u :GundoToggle<CR>
-
 " direction keys for wrapped lines
 nnoremap <silent> k gk
 nnoremap <silent> j gj
@@ -141,8 +138,8 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " split window
-nmap <Space>s :split<Return><C-w>w
-nmap <Space>v :vsplit<Return><C-w>w
+nmap <leader>s :split<Return><C-w>w
+nmap <leader>v :vsplit<Return><C-w>w
 
 " End key maps ------------------------
 
@@ -157,7 +154,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 " nerdtree
-nnoremap <silent> <space>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -165,6 +162,12 @@ let NERDTreeShowHidden=1 " show dotfiles
 
 " fzf
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>h :History<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
+" gundo toggle
+nnoremap <silent> <leader>u :GundoToggle<CR>
 
 " typescript-vim
 let g:typescript_indent_disable = 1
