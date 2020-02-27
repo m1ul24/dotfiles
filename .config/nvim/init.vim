@@ -187,3 +187,13 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 " End plugins -------------------------
+
+
+
+" Indent ------------------------------
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2
+autocmd FileType py setlocal shiftwidth=4 tabstop=4
+autocmd FileType go setlocal shiftwidth=4 tabstop=4
+" Indent ------------------------------
