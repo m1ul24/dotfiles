@@ -128,6 +128,9 @@ fi
 # Patent Pending Prompt
 export PS1="${nameC}\u${atC}@${hostC}\h:${pathC}\w${gitC}\$(gitPrompt)${pointerC} ▶${normalC} "
 
+# disable middle button
+xinput set-button-map "TPPS/2 Elan TrackPoint" 1 0 3 4 5 6 7
+
 # Tools
 pyserver () {
     python -m SimpleHTTPServer

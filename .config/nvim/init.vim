@@ -61,9 +61,10 @@ set ruler
 set title
 set nu
 set number
+set cmdheight=2
 
 " line wrapping
-set nowrap
+" set nowrap
 set linebreak
 set showbreak=▹
 
@@ -71,9 +72,7 @@ set showbreak=▹
 set autoindent
 
 " searching
-set ignorecase
 set smartcase
-set gdefault
 set hlsearch
 set showmatch
 
@@ -84,9 +83,9 @@ set hidden
 set backspace=eol,start,indent
 
 " indentation
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set shiftround
 set expandtab
 
@@ -109,9 +108,6 @@ let g:solarized_termcolors=256
 
 " disable automatic comment
 au FileType * set fo-=c fo-=r fo-=o
-
-" buffer to a new tab
-" au BufAdd,BufNewFile * nested tab sball
 
 " End General -------------------------
 
@@ -181,7 +177,17 @@ let g:ale_linters = {
 \   'scss': ['scss-lint'],
 \}
 
-" Language server
+" coc.nvim
+set updatetime=300
+let g:coc_global_extensions = [
+      \  'coc-json'
+      \, 'coc-html'
+      \, 'coc-css'
+      \, 'coc-tsserver'
+      \, 'coc-python'
+      \, 'coc-snippets'
+      \, 'coc-vetur'
+      \ ]
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
@@ -189,11 +195,15 @@ let g:LanguageClient_serverCommands = {
 " End plugins -------------------------
 
 
-
 " Indent ------------------------------
+
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType js setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2
+autocmd FileType php setlocal shiftwidth=2 tabstop=2
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2
-autocmd FileType py setlocal shiftwidth=4 tabstop=4
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
+
 " Indent ------------------------------
