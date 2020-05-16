@@ -159,7 +159,7 @@ ms () {
 }
 
 ide () {
-    tmux split-window -h -p 40
+    tmux split-window -h -p 35
     tmux split-window -v -p 50
 }
 
