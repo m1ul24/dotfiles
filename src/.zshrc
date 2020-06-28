@@ -8,3 +8,35 @@ case ${OSTYPE} in
 esac
 
 alias ll='ls -al'
+alias vim='nvim'
+
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+setopt hist_ignore_dups
+setopt EXTENDED_HISTORY
+
+# 'Safe' version of __git_ps1 to avoid errors on systems that don't have it
+function git_branch {
+  branch=`git symbolic-ref --short HEAD 2> /dev/null`
+  if [ $? -eq 0 ]; then
+    echo " (${branch})"
+  fi
+}
+
+setopt prompt_subst
+export PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f%F{yellow}$(git_branch)%f %# '
+# export RPROMPT='[%F{yellow}%?%f]'
+
+export EDITOR=/usr/local/bin/nvim
+
+ide () {
+    tmux split-window -h -p 35
+    tmux split-window -v -p 50
+}
+
+export N_PREFIX=$HOME/.n
+export PATH=$PATH:$HOME/.n/bin
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

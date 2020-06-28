@@ -1,8 +1,12 @@
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 case "${OSTYPE}" in
   linux*)
-    . ./setup_linux.sh
+    . "${dir}/install_linux.sh"
+    . "${dir}/setup_linux.sh"
   ;;
   darwin*)
-    . ./setup_darwin.sh
+    . "${dir}/install_macos.sh"
+    . "${dir}/setup_macos.sh"
   ;;
 esac

@@ -3,5 +3,7 @@ dotfiles
 ## Setup
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/m1ul24/dotfiles/master/bootstrap.sh)"
+git clone git@github.com:m1ul24/dotfiles.git
+cd dotfiles
+/bin/bash bootstrap.sh
 ```

@@ -1,11 +1,9 @@
 #!/bin/bash
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew bundle --file ./Brewfile
-
 function linkFile {
   src="${PWD}/src/${1}"
   dest="${HOME}/${1}"
+  destDir=$(dirname ${dest})
   dateStr=$(date +%Y-%m-%d-%H%M)
 
   if [ -h ${dest} ]; then
@@ -24,20 +22,27 @@ function linkFile {
     mv ${dest}{,.${dateStr}}
   fi
 
+  if [ ! -d ${destDir} ]; then
+    echo "Creating directory: ${destDir}"
+    mkdir -p ${destDir}
+  fi
+
   echo "Creating new symlink: ${dest}"
   ln -s ${src} ${dest}
 }
 
 case ${SHELL} in
   *bash)
-    linkDotfile .bashrc
+    linkFile .bashrc
   ;;
   *zsh)
-    linkDotfile .zshrc
-    linkDotfile .zshrc_darwin
+    linkFile .zshrc
+    linkFile .zshrc_darwin
   ;;
 esac
 
+linkFile .editorconfig
 linkFile .tmux.conf
 linkFile .config/nvim/init.vim
 
+exec $SHELL -l
