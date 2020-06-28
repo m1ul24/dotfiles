@@ -2,7 +2,12 @@ brew "neovim"
 brew "tmux"
 brew "n"
 brew "python"
+brew "docker"
+brew "docker-machine"
+brew "docker-compose"
 
-# nerd font
 tap "homebrew/cask-fonts"
 cask "font-hack-nerd-font"
+cask "virtualbox"
+cask "google-chrome"
+cask "firefox"
