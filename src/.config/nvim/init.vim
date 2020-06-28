@@ -23,7 +23,7 @@ Plug 'dense-analysis/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
+Plug 'cocopon/iceberg.vim'
 
 " language
 Plug 'posva/vim-vue'
@@ -102,9 +102,7 @@ set nofoldenable
 set clipboard+=unnamedplus
 
 " theme
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
+colorscheme iceberg
 
 " disable automatic comment
 au FileType * set fo-=c fo-=r fo-=o
