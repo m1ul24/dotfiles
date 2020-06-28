@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function linkFile {
   src="${PWD}/src/${1}"
   dest="${HOME}/${1}"

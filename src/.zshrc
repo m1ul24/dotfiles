@@ -38,5 +38,12 @@ ide () {
 export N_PREFIX=$HOME/.n
 export PATH=$PATH:$HOME/.n/bin
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
