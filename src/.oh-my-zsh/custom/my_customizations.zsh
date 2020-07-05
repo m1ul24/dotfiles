@@ -1,8 +1,3 @@
-ide () {
-    tmux split-window -h -p 35
-    tmux split-window -v -p 50
-}
-
 alias ls='ls -G'
 alias ll='ls -al'
 alias vim='nvim'
