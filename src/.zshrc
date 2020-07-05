@@ -15,6 +15,7 @@ export HISTSIZE=1000
 export SAVEHIST=100000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
+setopt share_history
 
 # 'Safe' version of __git_ps1 to avoid errors on systems that don't have it
 function git_branch {
@@ -29,6 +30,7 @@ export PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f%F{yellow}$(git_bra
 # export RPROMPT='[%F{yellow}%?%f]'
 
 export EDITOR=/usr/local/bin/nvim
+# export TERM=xterm-256color
 
 ide () {
     tmux split-window -h -p 35
