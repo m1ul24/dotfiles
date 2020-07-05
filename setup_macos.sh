@@ -44,7 +44,8 @@ case ${SHELL} in
 esac
 
 linkFile .editorconfig
-linkFile .tmux.conf
 linkFile .config/nvim/init.vim
+linkFile .tmux.conf
+linkFile .oh-my-zsh/custom/my_customizations.zsh
 
 exec $SHELL -l
