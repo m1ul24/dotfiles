@@ -33,18 +33,9 @@ function linkFile {
   ln -s ${src} ${dest}
 }
 
-case ${SHELL} in
-  *bash)
-    linkFile .bashrc
-  ;;
-  *zsh)
-    linkFile .zshrc
-    linkFile .zshrc_darwin
-  ;;
-esac
-
 linkFile .editorconfig
 linkFile .config/nvim/init.vim
+linkFile .config/nvim/coc-settings.json
 linkFile .tmux.conf
 linkFile .oh-my-zsh/custom/my_customizations.zsh
 

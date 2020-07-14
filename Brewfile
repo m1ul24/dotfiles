@@ -1,6 +1,7 @@
 brew "neovim"
 brew "tmux"
 brew "n"
+brew "rbenv"
 brew "python"
 brew "zsh-completions"
 brew "the_silver_searcher"

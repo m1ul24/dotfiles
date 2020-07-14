@@ -12,10 +12,6 @@ setopt EXTENDED_HISTORY
 setopt prompt_subst
 
 export EDITOR=/usr/local/bin/nvim
-
-export N_PREFIX=$HOME/.n
-export PATH=$PATH:$HOME/.n/bin
-
 export ZSH_THEME=gentoo
 
 if type brew &>/dev/null; then
@@ -25,5 +21,14 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+# fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# n
+export N_PREFIX=$HOME/.n
+export PATH=$HOME/.n/bin:$PATH
+
+# rbenv
+eval "$(rbenv init -)"
+
