@@ -31,4 +31,4 @@ export PATH=$HOME/.n/bin:$PATH
 
 # rbenv
 eval "$(rbenv init -)"
-
+export PATH=$HOME/.rbenv/shims:$PATH

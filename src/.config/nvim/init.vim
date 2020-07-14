@@ -31,6 +31,7 @@ Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
+Plug 'slim-template/vim-slim'
 
 " file explorer
 Plug 'scrooloose/nerdtree'
