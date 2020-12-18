@@ -25,10 +25,35 @@ fi
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # show dotfiles
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# n
-export N_PREFIX=$HOME/.n
-export PATH=$HOME/.n/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # rbenv
 eval "$(rbenv init -)"
 export PATH=$HOME/.rbenv/shims:$PATH
+
+# n
+export N_PREFIX=$HOME/.n
+export PATH=$HOME/.n/bin:$PATH
+
+# go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+certspotter(){
+  mkdir -p ~/hack/$1
+  curl -s https://certspotter.com/api/v0/certs\?domain\=$1 | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | grep $1 | sort -u | tee ~/hack/$1/dns_names.txt
+}
+
+dirbruteforce(){
+  while read line; do python3 ~/tools/dirsearch/dirsearch.py -e . -u "https://$line"; done < $1
+}
+
+screenshot(){
+  python3 ~/tools/webscreenshot/webscreenshot.py -i $1 --timeout=10 -m
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/m1ul24/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/m1ul24/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/m1ul24/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/m1ul24/google-cloud-sdk/completion.zsh.inc'; fi

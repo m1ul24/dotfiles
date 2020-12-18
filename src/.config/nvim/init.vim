@@ -32,12 +32,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'slim-template/vim-slim'
+Plug 'digitaltoad/vim-pug'
 
 " file explorer
 Plug 'scrooloose/nerdtree'
-
-" others
-Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -178,14 +176,18 @@ let g:ale_linters = {
 \}
 
 " coc.nvim
+set nobackup
+set nowritebackup
 set updatetime=300
 let g:coc_global_extensions = [
-      \  'coc-json'
+      \ 'coc-css'
+      \, 'coc-go'
       \, 'coc-html'
-      \, 'coc-css'
-      \, 'coc-tsserver'
+      \, 'coc-json'
       \, 'coc-python'
       \, 'coc-snippets'
+      \, 'coc-solargraph'
+      \, 'coc-tsserver'
       \, 'coc-vetur'
       \ ]
 let g:LanguageClient_serverCommands = {
